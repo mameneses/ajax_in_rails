@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  respond_to :html, :js
+
   def index
     @users = User.all
     @user = User.new
@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     @user.save
     respond_to do |format|
       format.html { redirect_to users_path }
-      format.js 
-      format.json {render json: @user.to_json(:include => [:location, :start_up])}
+      format.js #for remote:true ajax call on user/new
+      format.json {render json: @user.to_json(:include => [:location, :start_up])} # for Jquery AJAX call on users#index page
     end
   end
 
