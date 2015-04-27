@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  // DOM manipultution to add user
   function addUserToIndex (data) {
     $(".index-all-users").append("<hr>\
                                       <div>\
@@ -15,16 +16,19 @@ $(document).ready(function(){
         $('#user_location_attributes_address').val("")
   }
 
+  // adds listener to submit form on user index page
   $('.index-user-submit').on('click', function(e){
     
     var form = $(this).parent('form');
-
+    // prevents form from submitting and reloading page
     event.preventDefault();
 
+    // makes ajax call to create user
     $.ajax({
       type: "POST",
       url: form.attr('action'),
       data: form.serialize(),
+      // on success manipulate DOM to show new user
       success: function(data){
         addUserToIndex(data)
       },

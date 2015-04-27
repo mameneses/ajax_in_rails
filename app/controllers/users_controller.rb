@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.new
     @user.build_location
-    # show all info on user - DONE!
   end
 
   def new
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
     @user.save
     respond_to do |format|
       format.html { redirect_to users_path }
-      format.js
+      format.js 
       format.json {render json: @user.to_json(:include => [:location, :start_up])}
     end
   end
