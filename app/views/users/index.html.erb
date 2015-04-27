@@ -1,0 +1,34 @@
+<div class="create-user">
+   
+  <h1> Create New User </h1>
+
+  <%= form_for @user do |f| %>
+    <%= f.label :first_name %>:
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name %>
+
+    <%= f.fields_for :location do |location_f| %>
+      <%= location_f.label :address %>:
+      <%= location_f.text_field :address %>
+    <% end %>
+
+    <%= f.submit "Create User", :class => "index-user-submit" %>
+  <% end %>
+</div> 
+
+<h1>Users</h1>
+<div class="index-all-users">
+  <% @users.each do |user| %>
+    <hr>
+    <div>
+      <h5>Name:</h5>
+      <h3><%= user.first_name %> <%= user.first_name %></h3>
+      <h5>Location:</h5>
+      <h3><%= user.location.address %></h3>
+      <h5>Start Up:</h5>
+      <h3><%= user.start_up.name %></h3>
+    </div>
+  <% end %>
+</div>

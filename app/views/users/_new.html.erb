@@ -1,0 +1,19 @@
+<div class="create-user">
+   
+  <h3> Create New User </h3>
+
+  <%= form_for @user, remote: true do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+
+    <%= f.fields_for :location do |location_f| %>
+      <%= location_f.label :address %>
+      <%= location_f.text_field :address %>
+    <% end %>
+
+    <%= f.submit "Create User" %>
+  <% end %>
+</div> 

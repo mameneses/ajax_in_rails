@@ -1,0 +1,6 @@
+<% if @user.valid? %>
+  $(".confirm-user-create").show();
+  $(".create-user").hide();
+<% else %>
+  $(".error-user-create").show();
+<% end %>
