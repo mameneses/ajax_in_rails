@@ -10169,3 +10169,893 @@ Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-26 18:58:38 -
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-26 18:58:38 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-26 19:01:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mStartUp Load (0.2ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered users/index.html.erb within layouts/application (59.9ms)
+Completed 200 OK in 173ms (Views: 143.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-26 19:01:43 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-26 19:01:49 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"pop", "last_name"=>"pop", "location_attributes"=>{"address"=>"pop"}}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"  [["first_name", "pop"], ["last_name", "pop"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["address", "pop"], ["user_id", 5]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"  [["name", "new startup"]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 5[0m  [["start_up_id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered users/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 80ms (Views: 77.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-26 19:06:41 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-26 19:06:47 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"op", "last_name"=>"op", "location_attributes"=>{"address"=>"op"}}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"[0m  [["first_name", "op"], ["last_name", "op"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"  [["address", "op"], ["user_id", 6]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "new startup"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 6  [["start_up_id", 6]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-27 12:11:27 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (16.9ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mLocation Load (0.8ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mStartUp Load (0.5ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mStartUp Load (0.2ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered users/index.html.erb within layouts/application (93.7ms)
+Completed 200 OK in 233ms (Views: 181.7ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:11:28 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:12:42 -0700
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:12:42 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:12:42 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mStartUp Load (0.2ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.2ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered users/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 73ms (Views: 69.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:12:48 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-27 12:13:04 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"Matt", "last_name"=>"Chan", "location_attributes"=>{"address"=>"678"}}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (23.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"[0m  [["first_name", "Matt"], ["last_name", "Chan"]]
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"  [["address", "678"], ["user_id", 7]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "new startup"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 7  [["start_up_id", 7]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 27.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered users/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 36ms (Views: 33.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:13:10 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered users/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 90ms (Views: 87.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:28 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-27 12:25:35 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"12", "last_name"=>"12", "location_attributes"=>{"address"=>"12"}}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"[0m  [["first_name", "12"], ["last_name", "12"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"  [["address", "12"], ["user_id", 8]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "new startup"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 8  [["start_up_id", 8]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 8]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 8]]
+  Rendered users/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:43 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLocation Load (0.2ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered users/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:46 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 81ms (Views: 79.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:25:50 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-27 12:25:57 -0700
+Processing by UsersController#create as JS
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"to", "last_name"=>"to", "location_attributes"=>{"address"=>"to"}}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"[0m  [["first_name", "to"], ["last_name", "to"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"  [["address", "to"], ["user_id", 9]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "new startup"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 9  [["start_up_id", 9]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered users/create.js.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 2.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 8]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered users/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 43ms (Views: 39.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:26:00 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 9]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered users/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 91ms (Views: 87.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:00 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"", "last_name"=>"", "location_attributes"=>{"address"=>""}}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"[0m  [["first_name", ""], ["last_name", ""]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"  [["address", ""], ["user_id", 10]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "new startup"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 10  [["start_up_id", 10]]
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 25ms (ActiveRecord: 17.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 8]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 10]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered users/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 78ms (Views: 75.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:04 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 9]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 10]]
+  [1m[36mStartUp Load (0.2ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered users/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 88ms (Views: 84.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:30:23 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-27 12:30:31 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"89", "last_name"=>"89", "location_attributes"=>{"address"=>"89"}}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"[0m  [["first_name", "89"], ["last_name", "89"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"  [["address", "89"], ["user_id", 11]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "new startup"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 11  [["start_up_id", 11]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-27 12:32:16 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 8]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 10]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1[0m  [["user_id", 11]]
+  [1m[35mStartUp Load (0.1ms)[0m  SELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered users/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 94ms (Views: 90.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:32:17 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-27 12:32:27 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"9090", "last_name"=>"9090", "location_attributes"=>{"address"=>"9090"}}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"  [["first_name", "9090"], ["last_name", "9090"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["address", "9090"], ["user_id", 12]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"  [["name", "new startup"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 12[0m  [["start_up_id", 12]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-27 12:38:21 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 9]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 10]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 11]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mLocation Load (0.1ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."user_id" = $1 LIMIT 1  [["user_id", 12]]
+  [1m[36mStartUp Load (0.1ms)[0m  [1mSELECT  "start_ups".* FROM "start_ups"  WHERE "start_ups"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  Rendered users/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 78ms (Views: 74.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-27 12:38:22 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2015-04-27 12:38:28 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQCDd6NX9EHakrpOPlcxt2EeAnTLJJvmOxR8rFlM/5I=", "user"=>{"first_name"=>"qwqw", "last_name"=>"qwqw", "location_attributes"=>{"address"=>"qwqw"}}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name") VALUES ($1, $2) RETURNING "id"[0m  [["first_name", "qwqw"], ["last_name", "qwqw"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "locations" ("address", "user_id") VALUES ($1, $2) RETURNING "id"  [["address", "qwqw"], ["user_id", 13]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "start_ups" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "new startup"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "start_up_id" = $1 WHERE "users"."id" = 13  [["start_up_id", 13]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.1ms)

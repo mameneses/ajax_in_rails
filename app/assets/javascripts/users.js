@@ -1,6 +1,6 @@
-$(document).ready(function(){
+var ready = function() {
 
-  // DOM manipultution to add user
+  // DOM manipultution to add user and clear form
   function addUserToIndex (data) {
     $(".index-all-users").append("<hr>\
                                       <div>\
@@ -33,9 +33,13 @@ $(document).ready(function(){
         addUserToIndex(data)
       },
       error: function(data){
-        console.log("Something send wrong!")
+        console.log("Something went wrong!")
       },
       dataType: "JSON"
     });
   });
-});
+
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
